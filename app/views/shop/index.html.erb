@@ -1,0 +1,12 @@
+<h3><u> Current Stock </u></h3><br/>
+<% if !@vinyls.empty? %>
+	<% @vinyls.each do |vinyl| %>
+		<%= image_tag(vinyl.poster, :size => "80x80") %></br>
+		<b>Artist: </b><%= vinyl.artist %></br>
+		<b>Album:</b> <%= vinyl.album %></br>
+		<b>Price</b><%= euro(vinyl.price) %></br>
+		<%= button_to 'Add to Cart', lineitems_path(vinyl_id: vinyl) %><br/><br/>
+	<% end %>
+<% else %>
+	<p>There are no vinyls for sale</p>
+<% end %>

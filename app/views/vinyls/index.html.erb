@@ -1,0 +1,31 @@
+<h1>Listing vinyls</h1>
+
+<table>
+  <tr>
+    <th>Artist</th>
+    <th>Album</th>
+    <th>Poster</th>
+    <th>Price</th>
+    <th>Quantity</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @vinyls.each do |vinyl| %>
+  <tr>
+    <td><%= vinyl.artist %></td>
+    <td><%= vinyl.album %></td>
+    <td><%= vinyl.poster %></td>
+    <td><%= vinyl.price %></td>
+    <td><%= vinyl.quantity %></td>
+    <td><%= link_to 'Show', vinyl %></td>
+    <td><%= link_to 'Edit', edit_vinyl_path(vinyl) %></td>
+    <td><%= link_to 'Destroy', vinyl, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Vinyl', new_vinyl_path %>
